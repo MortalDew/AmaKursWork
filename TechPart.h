@@ -4,8 +4,8 @@
 #define TechPartH
 //---------------------------------------------------------------------------
 #include <vcl.h>
-#include <ctime> // для time()
-#include <cstdlib> // для rand() и srand()
+#include <ctime> // Г¤Г«Гї time()
+#include <cstdlib> // Г¤Г«Гї rand() ГЁ srand()
 #include "PlayForm.h"
 
 int Win(bool add, bool get, int who){
@@ -90,7 +90,7 @@ String GetCardName(const Card &card)
 int getRandomNumber(int min, int max)
 {
 	static const double fraction = 1.0 / (static_cast<double>(RAND_MAX) + 1.0);
-	// Равномерно распределяем генерацию случайного числа в диапазоне значений
+	// ГђГ ГўГ­Г®Г¬ГҐГ°Г­Г® Г°Г Г±ГЇГ°ГҐГ¤ГҐГ«ГїГҐГ¬ ГЈГҐГ­ГҐГ°Г Г¶ГЁГѕ Г±Г«ГіГ·Г Г©Г­Г®ГЈГ® Г·ГЁГ±Г«Г  Гў Г¤ГЁГ ГЇГ Г§Г®Г­ГҐ Г§Г­Г Г·ГҐГ­ГЁГ©
 	return static_cast<int>(rand() * fraction * (max - min + 1) + min);
 }
 
@@ -102,12 +102,12 @@ void swapCard(Card &a, Card &b)
 }
 void shuffleDeck(Card *deck)
 {
-	// Перебираем каждую карту в колоде
-	for (int index = 0; index < 36; ++index)
+	// ГЏГҐГ°ГҐГЎГЁГ°Г ГҐГ¬ ГЄГ Г¦Г¤ГіГѕ ГЄГ Г°ГІГі Гў ГЄГ®Г«Г®Г¤ГҐ
+	for (int index = 0; index < 52; ++index)
 	{
-		// Выбираем любую случайную карту
-		int swapIndex = getRandomNumber(0, 35);
-		// Меняем местами с нашей текущей картой
+		// Г‚Г»ГЎГЁГ°Г ГҐГ¬ Г«ГѕГЎГіГѕ Г±Г«ГіГ·Г Г©Г­ГіГѕ ГЄГ Г°ГІГі
+		int swapIndex = getRandomNumber(0, 51);
+		// ГЊГҐГ­ГїГҐГ¬ Г¬ГҐГ±ГІГ Г¬ГЁ Г± Г­Г ГёГҐГ© ГІГҐГЄГіГ№ГҐГ© ГЄГ Г°ГІГ®Г©
 		swapCard(deck[index], deck[swapIndex]);
 	}
 }
