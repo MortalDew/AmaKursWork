@@ -103,10 +103,10 @@ void swapCard(Card &a, Card &b)
 void shuffleDeck(Card *deck)
 {
 	// Ïåðåáèðàåì êàæäóþ êàðòó â êîëîäå
-	for (int index = 0; index < 52; ++index)
+	for (int index = 0; index < 36; ++index)
 	{
 		// Âûáèðàåì ëþáóþ ñëó÷àéíóþ êàðòó
-		int swapIndex = getRandomNumber(0, 51);
+		int swapIndex = getRandomNumber(0, 35);
 		// Ìåíÿåì ìåñòàìè ñ íàøåé òåêóùåé êàðòîé
 		swapCard(deck[index], deck[swapIndex]);
 	}
