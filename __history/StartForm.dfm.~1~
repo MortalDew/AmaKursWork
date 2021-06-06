@@ -1,0 +1,33 @@
+object Form1: TForm1
+  Left = 0
+  Top = 0
+  BorderStyle = bsSizeToolWin
+  Caption = '21 '#1086#1095#1082#1086
+  ClientHeight = 201
+  ClientWidth = 447
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  Visible = True
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Button1: TButton
+    Left = 120
+    Top = 56
+    Width = 185
+    Height = 73
+    Cursor = crHandPoint
+    Caption = #1053#1072#1095#1072#1090#1100' '#1080#1075#1088#1091
+    Font.Charset = RUSSIAN_CHARSET
+    Font.Color = clWindowText
+    Font.Height = 36
+    Font.Name = 'Trebuchet MS'
+    Font.Style = []
+    ParentFont = False
+    TabOrder = 0
+  end
+end

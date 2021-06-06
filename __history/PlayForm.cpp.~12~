@@ -1,0 +1,219 @@
+//---------------------------------------------------------------------------
+
+#include <vcl.h>
+#include <windows.h>
+#pragma hdrstop
+
+#include "PlayForm.h"
+#include "StartForm.h"
+#include "TechPart.h"
+//---------------------------------------------------------------------------
+#pragma package(smart_init)
+#pragma resource "*.dfm"
+TForm2 *Form2;
+int CardPlace = 0;
+int DealerCardPlace = 0;
+int playerTotal = 0;
+int dealerTotal = 0;
+Card deck[52];
+Card *cardPtr = &deck[0];
+//---------------------------------------------------------------------------
+__fastcall TForm2::TForm2(TComponent* Owner)
+	: TForm(Owner)
+{
+	srand(static_cast<unsigned int>(time(0))); // устанавливаем значение системных часов в качестве стартового числа
+	rand(); // если используете Visual Studio, сбрасываем первое сгенерированное рандомное число
+
+
+
+	// Можно было бы вручную (по отдельности) инициализировать каждую карту, но мы ведь программисты! Цикл нам в помощь!
+	int card = 0;
+	for (int suit = 0; suit < MAX_SUITS; ++suit)
+	for (int rank = 0; rank < MAX_RANKS; ++rank)
+	{
+		deck[card].suit = static_cast<CardSuit>(suit);
+		deck[card].rank = static_cast<CardRank>(rank);
+		++card;
+	}
+
+	shuffleDeck(deck);
+
+	ImageD1->Picture->LoadFromFile(GetCardName(*cardPtr));
+	dealerTotal += getCardValue(*cardPtr++);
+
+	LabelDealer->Caption = dealerTotal;
+
+	// Игрок получает две карты
+
+	Image1->Picture->LoadFromFile(GetCardName(*cardPtr));
+	playerTotal += getCardValue(*cardPtr++);
+
+	Image2->Picture->LoadFromFile(GetCardName(*cardPtr));
+	playerTotal += getCardValue(*cardPtr++);
+
+	LabelPlayer->Caption = playerTotal;
+
+}
+//---------------------------------------------------------------------------
+void __fastcall TForm2::ButtonExitClick(TObject *Sender)
+{
+	Application->Terminate();
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm2::ButtonHitClick(TObject *Sender)
+{
+
+	String Path = GetCardName(*cardPtr++);
+	playerTotal += getCardValue(*cardPtr);
+	LabelPlayer->Caption = playerTotal;
+
+	switch(CardPlace)
+	{
+		case 0:
+		{
+			Image3->Picture->LoadFromFile(Path);
+			CardPlace++;
+		};break;
+		case 1:
+		{
+			Image4->Picture->LoadFromFile(Path);
+			CardPlace = 0;
+		};break;
+		case 2:
+		{
+			Image5->Picture->LoadFromFile(Path);
+			CardPlace = 0;
+		};break;
+		case 3:
+		{
+			Image6->Picture->LoadFromFile(Path);
+			CardPlace = 0;
+		};break;
+		default:
+		{
+			ShowMessage("You lose");
+		}
+	}
+
+	if (playerTotal>21) {
+		ResultPanel->Caption = "You Lose";
+		ResultPanel->Show();
+	}
+
+
+
+}
+//---------------------------------------------------------------------------
+void __fastcall TForm2::ButtonStandClick(TObject *Sender)
+{
+	while (dealerTotal<17)
+	{
+		String DealerPath = GetCardName(*cardPtr++);
+		dealerTotal += getCardValue(*cardPtr);
+		LabelDealer->Caption = dealerTotal;
+
+		switch(CardPlace)
+		{
+			case 0:
+			{
+				ImageD2->Picture->LoadFromFile(DealerPath);
+				CardPlace++;
+			};break;
+			case 1:
+			{
+				ImageD3->Picture->LoadFromFile(DealerPath);
+				CardPlace++;
+			};break;
+			case 2:
+			{
+				ImageD4->Picture->LoadFromFile(DealerPath);
+				CardPlace++;
+			};break;
+			case 3:
+			{
+				ImageD5->Picture->LoadFromFile(DealerPath);
+				CardPlace++;
+			};break;
+			case 4:
+			{
+				ImageD6->Picture->LoadFromFile(DealerPath);
+				CardPlace++;
+			};break;
+			default:
+			{
+				ShowMessage("Dealer lose");
+			}
+		}
+	}
+	if (dealerTotal>21)
+	{
+		ResultPanel->Caption = "You Win";
+		ResultPanel->Show();
+	}
+	else
+		{
+			if (dealerTotal >= playerTotal)
+			{
+				ResultPanel->Caption = "You Lose";
+				ResultPanel->Show();
+			}
+			else
+				{
+					ResultPanel->Caption = "You Win";
+					ResultPanel->Show();
+				}
+	}
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm2::ResultPanelClick(TObject *Sender)
+{
+	Form2->Close();
+	Form1->Show();
+	ResultPanel->Hide();
+
+	dealerTotal = 0;
+	LabelDealer->Caption = 0;
+	playerTotal = 0;
+	LabelPlayer->Caption = 0;
+
+	Image1->Picture = NULL;
+	Image2->Picture = NULL;
+	Image3->Picture = NULL;
+	Image4->Picture = NULL;
+	Image5->Picture = NULL;
+	Image6->Picture = NULL;
+	ImageD1->Picture = NULL;
+	ImageD2->Picture = NULL;
+	ImageD3->Picture = NULL;
+	ImageD4->Picture = NULL;
+	ImageD5->Picture = NULL;
+	ImageD6->Picture = NULL;
+
+	CardPlace = 0;
+	DealerCardPlace = 0;
+
+	shuffleDeck(deck);
+
+    *cardPtr = deck[0];
+
+	ImageD1->Picture->LoadFromFile(GetCardName(*cardPtr));
+	dealerTotal += getCardValue(*cardPtr++);
+
+	LabelDealer->Caption = dealerTotal;
+
+	// Игрок получает две карты
+
+	Image1->Picture->LoadFromFile(GetCardName(*cardPtr));
+	playerTotal += getCardValue(*cardPtr++);
+
+	Image2->Picture->LoadFromFile(GetCardName(*cardPtr));
+	playerTotal += getCardValue(*cardPtr++);
+
+	LabelPlayer->Caption = playerTotal;
+
+
+}
+//---------------------------------------------------------------------------
+

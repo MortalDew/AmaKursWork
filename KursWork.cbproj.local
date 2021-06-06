@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>1899.12.30 00:00:00.000.350,C:\Users\Никита\Documents\RAD Studio\Projects\AmKursWork\PlayFoem.dfm=C:\Users\Никита\Documents\RAD Studio\Projects\AmKursWork\PlayForm.dfm</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.699,=C:\Users\Никита\Documents\RAD Studio\Projects\AmKursWork\Unit1.cpp</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.861,C:\Users\Никита\Documents\RAD Studio\Projects\KursWork.cbproj=C:\Users\Никита\Documents\RAD Studio\Projects\AmKursWork\KursWork.cbproj</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.032,C:\Users\Никита\Documents\RAD Studio\Projects\Unit1.dfm=C:\Users\Никита\Documents\RAD Studio\Projects\AmKursWork\StartForm.dfm</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.500,C:\Users\Никита\Documents\RAD Studio\Projects\AmKursWork\TechPart.h=C:\Users\Никита\Documents\RAD Studio\Projects\AmKursWork\Unit1.h</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.450,=C:\Users\Никита\Documents\RAD Studio\Projects\AmKursWork\Unit2.cpp</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.656,C:\Users\Никита\Documents\RAD Studio\Projects\AmKursWork\Unit2.cpp=C:\Users\Никита\Documents\RAD Studio\Projects\AmKursWork\PlayFoem.cpp</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.138,=C:\Users\Никита\Documents\RAD Studio\Projects\Project1.res</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.656,C:\Users\Никита\Documents\RAD Studio\Projects\AmKursWork\Unit2.h=C:\Users\Никита\Documents\RAD Studio\Projects\AmKursWork\PlayFoem.h</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.195,=C:\Users\Никита\Documents\RAD Studio\Projects\Unit1.cpp</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.656,C:\Users\Никита\Documents\RAD Studio\Projects\AmKursWork\Unit2.dfm=C:\Users\Никита\Documents\RAD Studio\Projects\AmKursWork\PlayFoem.dfm</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.931,C:\Users\Никита\Documents\RAD Studio\Projects\Project1.cbproj=C:\Users\Никита\Documents\RAD Studio\Projects\Kurs work.cbproj</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.031,C:\Users\Никита\Documents\RAD Studio\Projects\Unit1.cpp=C:\Users\Никита\Documents\RAD Studio\Projects\AmKursWork\StartForm.cpp</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.350,C:\Users\Никита\Documents\RAD Studio\Projects\AmKursWork\PlayFoem.h=C:\Users\Никита\Documents\RAD Studio\Projects\AmKursWork\PlayForm.h</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.350,C:\Users\Никита\Documents\RAD Studio\Projects\AmKursWork\PlayFoem.cpp=C:\Users\Никита\Documents\RAD Studio\Projects\AmKursWork\PlayForm.cpp</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.453,C:\Users\Никита\Documents\RAD Studio\Projects\Kurs work.cbproj=C:\Users\Никита\Documents\RAD Studio\Projects\KursWork.cbproj</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.500,C:\Users\Никита\Documents\RAD Studio\Projects\AmKursWork\TechPart.cpp=C:\Users\Никита\Documents\RAD Studio\Projects\AmKursWork\Unit1.cpp</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.032,C:\Users\Никита\Documents\RAD Studio\Projects\Unit1.h=C:\Users\Никита\Documents\RAD Studio\Projects\AmKursWork\StartForm.h</Transaction>
+  </Transactions>
+</BorlandProject>

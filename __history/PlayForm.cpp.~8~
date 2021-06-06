@@ -1,0 +1,87 @@
+//---------------------------------------------------------------------------
+
+#include <vcl.h>
+#pragma hdrstop
+
+#include "PlayForm.h"
+#include "StartForm.h"
+#include "TechPart.h"
+//---------------------------------------------------------------------------
+#pragma package(smart_init)
+#pragma resource "*.dfm"
+TForm2 *Form2;
+int CardPlace = 0;
+int playerTotal = 0;
+int dealerTotal = 0;
+String BackSide = "";
+Card deck[36];
+const Card *cardPtr = &deck[0];
+//---------------------------------------------------------------------------
+__fastcall TForm2::TForm2(TComponent* Owner)
+	: TForm(Owner)
+{
+	srand(static_cast<unsigned int>(time(0))); // устанавливаем значение системных часов в качестве стартового числа
+	rand(); // если используете Visual Studio, сбрасываем первое сгенерированное рандомное число
+
+
+
+	// Можно было бы вручную (по отдельности) инициализировать каждую карту, но мы ведь программисты! Цикл нам в помощь!
+	int card = 0;
+	for (int suit = 0; suit < MAX_SUITS; ++suit)
+	for (int rank = 0; rank < MAX_RANKS; ++rank)
+	{
+		deck[card].suit = static_cast<CardSuit>(suit);
+		deck[card].rank = static_cast<CardRank>(rank);
+		++card;
+	}
+
+	shuffleDeck(deck);
+
+	ImageD1->Picture->LoadFromFile(GetCardName(*cardPtr));
+	dealerTotal += getCardValue(*cardPtr++);
+	//Image3->Picture->LoadFromFile(Path);
+	Card SecondCard = *cardPtr++;
+
+	// Игрок получает две карты
+	playerTotal += getCardValue(*cardPtr++);
+	playerTotal += getCardValue(*cardPtr++);
+
+}
+//---------------------------------------------------------------------------
+void __fastcall TForm2::ButtonExitClick(TObject *Sender)
+{
+	Application->Terminate();
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm2::ButtonStandClick(TObject *Sender)
+{
+
+	String Path = GetCardName(*cardPtr++);
+	playerTotal += getCardValue(*cardPtr);
+	Label1->Caption = playerTotal;
+
+	switch(CardPlace)
+	{
+		case 0:
+		{
+			Image3->Picture->LoadFromFile(Path);
+			CardPlace++;
+		};break;
+		case 1:
+		{
+			Image4->Picture->LoadFromFile(Path);
+			CardPlace++;
+		};break;
+		default:
+		{
+			ShowMessage("You lose");
+			CardPlace = 0;
+		}
+	}
+
+
+
+}
+//---------------------------------------------------------------------------
+
